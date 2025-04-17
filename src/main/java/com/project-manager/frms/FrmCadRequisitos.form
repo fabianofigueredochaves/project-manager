@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+                      <Component id="lblDescrFrame" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblComplex" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmbComplex" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lblAutor" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblAutorProj" min="-2" pref="129" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblModulo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtModulo" min="-2" pref="117" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtNomeReq" min="-2" pref="168" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblId" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblNomeProj" min="-2" pref="187" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblFunc" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtFuncionalidades" min="-2" pref="165" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblTmpEsfEstimado" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtTmpEsfEstimado" min="-2" pref="72" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblDescricao" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane1" min="-2" pref="287" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblPrioridade" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cmbPrioridade" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblVersao" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtVersao" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblFase" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="cmbFase" min="-2" pref="151" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblEstado" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cmbEstado" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="btnCadastrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btnLimpar" min="-2" pref="85" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <Component id="btnFechar" min="-2" pref="85" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Component id="lblDescrFrame" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNomeProj" alignment="3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNomeReq" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtModulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblModulo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblFunc" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFuncionalidades" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAutorProj" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblVersao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtVersao" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblPrioridade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbPrioridade" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblComplex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbComplex" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTmpEsfEstimado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTmpEsfEstimado" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbEstado" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblFase" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbFase" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblDescricao" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="78" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="btnFechar" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblDescrFrame">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastro de Requisitos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNome">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome do requisito:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblModulo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="M&#xf3;dulo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNomeReq">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtModulo">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFunc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Funcionalidades:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtFuncionalidades">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAutor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Autor:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblVersao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vers&#xe3;o:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblPrioridade">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Prioridade:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblComplex">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Complexidade:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTmpEsfEstimado">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Esfor&#xe7;o estimado (h):"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblEstado">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Estado:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblFase">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fase:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDescricao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nome do projeto:"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="txtDescricao">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnCadastrar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cadastrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnLimpar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFechar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFecharActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel17">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbComplex">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Baixa"/>
+            <StringItem index="1" value="Media"/>
+            <StringItem index="2" value="Alta"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbEstado">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Inicial"/>
+            <StringItem index="1" value="Intermediario"/>
+            <StringItem index="2" value="Final"/>
+            <StringItem index="3" value="Conclu&#xed;do"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbPrioridade">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Baixa"/>
+            <StringItem index="1" value="M&#xe9;dia"/>
+            <StringItem index="2" value="Alta"/>
+            <StringItem index="3" value="Urgente"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNomeProj">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="..."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAutorProj">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="..."/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbFase">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtTmpEsfEstimado">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtVersao">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

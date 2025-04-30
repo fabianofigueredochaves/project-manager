@@ -5,11 +5,11 @@ public class MySqlConector {
 
     static private Connection conexao = null;
         
-    static private final String HOSTNAME = "jdbc:mysql://remotemysql.com";
-    static private final String DB_NAME = "PrC8BsjFFK";
-    static private final String USER_NAME = "PrC8BsjFFK";
-    static private final String USER_PASS = "91BiyBfnNc";
-    static private final int PORT_NUMBER = 3306;
+    static private final String HOSTNAME = "jdbc:mysql://localhost";
+    static private final String DB_NAME = "projectmanager";
+    static private final String USER_NAME = "ffc";
+    static private final String USER_PASS = "ffc";
+    static private final String PORT_NUMBER = "3306";
        
     public static Connection conectar(){// throws SQLException{
         

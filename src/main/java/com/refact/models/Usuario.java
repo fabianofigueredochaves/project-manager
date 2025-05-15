@@ -1,4 +1,4 @@
-// 1. Model (Entidade)
+
 package com.refact.models;
 
 public class Usuario {

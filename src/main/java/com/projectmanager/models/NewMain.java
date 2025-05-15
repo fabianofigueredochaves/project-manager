@@ -14,7 +14,7 @@ public class NewMain {
     
     public static void main(String[] args) throws SQLException {                   
        
-        System.out.println("Conexão com remotemysql.com:");
+        System.out.println("Conexão com MySql");
       
         MySqlUsuarios.criarTabUsuario();
       

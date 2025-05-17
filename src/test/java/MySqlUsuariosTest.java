@@ -1,6 +1,5 @@
-package com.projectmanager.mysql;
-
 import com.projectmanager.models.Usuarios;
+import com.projectmanager.mysql.MySqlUsuarios;
 import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;

@@ -1,7 +1,7 @@
 package com.refact.dao;
 
 
-import com.refact.models.Usuario;
+import com.refact.models.Usuarios;
 import com.refact.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
@@ -86,8 +86,8 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public List<Usuario> obterTodosUsuarios() throws SQLException {
-        List<Usuario> usuarios = new ArrayList<>();
+    public List<Usuarios> obterTodosUsuarios() throws SQLException {
+        List<Usuarios> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM Usuarios ORDER BY NomeUsuario ASC";
 
         try (Connection conn = databaseConnection.getConnection();
@@ -95,7 +95,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Usuario usuario = new Usuario();
+                Usuarios usuario = new Usuarios();
                 usuario.setId(rs.getInt("Id"));
                 usuario.setNomeCompleto(rs.getString("NomeCompleto"));
                 usuario.setNomeUsuario(rs.getString("NomeUsuario"));
@@ -140,7 +140,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public void cadastrarUsuario(Usuario usuario) throws SQLException {
+    public void cadastrarUsuario(Usuarios usuario) throws SQLException {
         String sql = "INSERT INTO Usuarios (NomeCompleto, NomeUsuario, Senha, Email, Telefone) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = databaseConnection.getConnection();
@@ -161,7 +161,7 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     }
 
     @Override
-    public void atualizarUsuario(Usuario usuario) throws SQLException {
+    public void atualizarUsuario(Usuarios usuario) throws SQLException {
         String sql = "UPDATE Usuarios SET NomeCompleto = ?, NomeUsuario = ?, Senha = ?, Email = ?, Telefone = ? WHERE Id = ?";
 
         try (Connection conn = databaseConnection.getConnection();

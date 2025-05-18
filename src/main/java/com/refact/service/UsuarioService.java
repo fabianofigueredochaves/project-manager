@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//package com.projectmanager.mysql;
 package com.refact.service;
 
 // 6. Classe de serviço para usuários
 
 import com.refact.dao.UsuarioDAO;
-import com.refact.models.Usuario;
+import com.refact.models.Usuarios;
 import java.util.List;
 
 public class UsuarioService {
@@ -34,25 +31,24 @@ public class UsuarioService {
         return usuarioDAO.obterUsuarios();
     }
 
-    public List<Usuario> listarTodosUsuarios() throws Exception {
+    public List<Usuarios> listarTodosUsuarios() throws Exception {
         return usuarioDAO.obterTodosUsuarios();
     }
 
-    public boolean autenticar(String nomeUsuario, String senha) throws Exception {
-        int resultado = usuarioDAO.autenticarUsuario(nomeUsuario, senha);
-        return resultado > 0;
+    public int autenticar(String nomeUsuario, String senha) throws Exception {
+        return usuarioDAO.autenticarUsuario(nomeUsuario, senha);
     }
 
     public int obterIdUsuarioAutenticado(String nomeUsuario, String senha) throws Exception {
         return usuarioDAO.autenticarUsuario(nomeUsuario, senha);
     }
 
-    public void cadastrar(Usuario usuario) throws Exception {
+    public void cadastrar(Usuarios usuario) throws Exception {
         // Aqui poderia ter validações antes de cadastrar
         usuarioDAO.cadastrarUsuario(usuario);
     }
 
-    public void atualizar(Usuario usuario) throws Exception {
+    public void atualizar(Usuarios usuario) throws Exception {
         usuarioDAO.atualizarUsuario(usuario);
     }
 

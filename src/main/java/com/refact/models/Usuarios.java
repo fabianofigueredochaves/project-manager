@@ -1,7 +1,7 @@
 
 package com.refact.models;
 
-public class Usuario {
+public class Usuarios {
     private int id;
     private String nomeCompleto;
     private String nomeUsuario;
@@ -10,11 +10,11 @@ public class Usuario {
     private String telefone;
 
     // Construtor vazio
-    public Usuario() {
+    public Usuarios() {
     }
 
     // Construtor para criação de novo usuário
-    public Usuario(String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
+    public Usuarios(String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
         this.nomeCompleto = nomeCompleto;
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
@@ -23,7 +23,7 @@ public class Usuario {
     }
 
     // Construtor para usuário existente
-    public Usuario(int id, String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
+    public Usuarios(int id, String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.nomeUsuario = nomeUsuario;

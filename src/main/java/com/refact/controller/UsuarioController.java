@@ -5,7 +5,7 @@ package com.refact.controller;
 
 
 import com.refact.factory.DAOFactory;
-import com.refact.models.Usuario;
+import com.refact.models.Usuarios;
 import com.refact.service.UsuarioService;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -26,28 +26,37 @@ public class UsuarioController {
         }
     }
 
-    public boolean autenticarUsuario(String nomeUsuario, String senha) {
+    public int autenticarUsuario(String nomeUsuario, String senha) {
         try {
             return usuarioService.autenticar(nomeUsuario, senha);
         } catch (Exception e) {
             exibirErro("Erro ao autenticar usuário", e);
-            return false;
+            return 0;
         }
     }
-
+/*
     public void cadastrarUsuario(String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
         try {
-            Usuario usuario = new Usuario(nomeCompleto, nomeUsuario, senha, email, telefone);
+            Usuarios usuario = new Usuarios(nomeCompleto, nomeUsuario, senha, email, telefone);
             usuarioService.cadastrar(usuario);
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
         } catch (Exception e) {
             exibirErro("Erro ao cadastrar usuário", e);
         }
     }
-
+*/
+    public void cadastrarUsuario(Usuarios usuario) {
+        try {          
+            usuarioService.cadastrar(usuario);
+            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
+        } catch (Exception e) {
+            exibirErro("Erro ao cadastrar usuário", e);
+        }
+    }
+    
     public void atualizarUsuario(int id, String nomeCompleto, String nomeUsuario, String senha, String email, String telefone) {
         try {
-            Usuario usuario = new Usuario(id, nomeCompleto, nomeUsuario, senha, email, telefone);
+            Usuarios usuario = new Usuarios(id, nomeCompleto, nomeUsuario, senha, email, telefone);
             usuarioService.atualizar(usuario);
             JOptionPane.showMessageDialog(null, "Usuário atualizado com sucesso!");
         } catch (Exception e) {
@@ -64,7 +73,7 @@ public class UsuarioController {
         }
     }
 
-    public List<Usuario> listarTodosUsuarios() {
+    public List<Usuarios> listarTodosUsuarios() {
         try {
             return usuarioService.listarTodosUsuarios();
         } catch (Exception e) {

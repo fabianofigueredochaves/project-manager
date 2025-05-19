@@ -1,8 +1,9 @@
-/*
-package com.projectmanager.service;
 
-import com.projectmanager.dao.UsuarioDAO;
-import com.projectmanager.models.Usuario;
+package refact.TesteUnitario;
+
+import com.refact.dao.UsuarioDAO;
+import com.refact.models.Usuarios;
+import com.refact.service.UsuarioService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,8 +18,11 @@ import static org.mockito.Mockito.*;
 
 public class UsuarioServiceTest {
 
-    private UsuarioService usuarioService;
-    private UsuarioDAO mockUsuarioDAO;
+    public UsuarioService usuarioService;
+    public UsuarioDAO mockUsuarioDAO;
+    
+    //private UsuarioService usuarioService;
+    //private UsuarioDAO mockUsuarioDAO;
 
     @BeforeEach
     public void setUp() {
@@ -75,14 +79,14 @@ public class UsuarioServiceTest {
     @DisplayName("Deve listar todos os usuários")
     public void testListarTodosUsuarios() throws Exception {
         // Arrange
-        List<Usuario> usuarios = Arrays.asList(
-            new Usuario(1, "João Silva", "joao", "senha1", "joao@email.com", "999887766"),
-            new Usuario(2, "Maria Santos", "maria", "senha2", "maria@email.com", "988776655")
+        List<Usuarios> usuarios = Arrays.asList(
+            new Usuarios(1, "João Silva", "joao", "senha1", "joao@email.com", "999887766"),
+            new Usuarios(2, "Maria Santos", "maria", "senha2", "maria@email.com", "988776655")
         );
         when(mockUsuarioDAO.obterTodosUsuarios()).thenReturn(usuarios);
         
         // Act
-        List<Usuario> resultado = usuarioService.listarTodosUsuarios();
+        List<Usuarios> resultado = usuarioService.listarTodosUsuarios();
         
         // Assert
         assertEquals(2, resultado.size());
@@ -97,13 +101,10 @@ public class UsuarioServiceTest {
     @DisplayName("Deve autenticar usuário com credenciais corretas")
     public void testAutenticarUsuarioComCredenciaisCorretas() throws Exception {
         // Arrange
-        when(mockUsuarioDAO.autenticarUsuario("joao", "senha123")).thenReturn(1);
-        
-        // Act
-        boolean resultado = usuarioService.autenticar("joao", "senha123");
+        when(mockUsuarioDAO.autenticarUsuario("joao", "senha123")).thenReturn(1);   
         
         // Assert
-        assertTrue(resultado);
+        assertEquals(1, usuarioService.autenticar("joao", "senha123"));      
         verify(mockUsuarioDAO).autenticarUsuario("joao", "senha123");
     }
 
@@ -111,13 +112,10 @@ public class UsuarioServiceTest {
     @DisplayName("Deve rejeitar autenticação com credenciais incorretas")
     public void testAutenticarUsuarioComCredenciaisIncorretas() throws Exception {
         // Arrange
-        when(mockUsuarioDAO.autenticarUsuario("joao", "senha_errada")).thenReturn(0);
-        
-        // Act
-        boolean resultado = usuarioService.autenticar("joao", "senha_errada");
-        
+        when(mockUsuarioDAO.autenticarUsuario("joao", "senha_errada")).thenReturn(0);        
+   
         // Assert
-        assertFalse(resultado);
+        assertEquals(0, usuarioService.autenticar("joao", "senha_errada"));   
         verify(mockUsuarioDAO).autenticarUsuario("joao", "senha_errada");
     }
 
@@ -125,13 +123,10 @@ public class UsuarioServiceTest {
     @DisplayName("Deve rejeitar autenticação com usuário inexistente")
     public void testAutenticarUsuarioInexistente() throws Exception {
         // Arrange
-        when(mockUsuarioDAO.autenticarUsuario("inexistente", "qualquer")).thenReturn(-1);
-        
-        // Act
-        boolean resultado = usuarioService.autenticar("inexistente", "qualquer");
-        
-        // Assert
-        assertFalse(resultado);
+        when(mockUsuarioDAO.autenticarUsuario("inexistente", "qualquer")).thenReturn(-1);        
+              
+        // Assert     
+        assertEquals(-1, usuarioService.autenticar("inexistente", "qualquer")); 
         verify(mockUsuarioDAO).autenticarUsuario("inexistente", "qualquer");
     }
 
@@ -153,7 +148,7 @@ public class UsuarioServiceTest {
     @DisplayName("Deve cadastrar usuário corretamente")
     public void testCadastrarUsuario() throws Exception {
         // Arrange
-        Usuario usuario = new Usuario("João Silva", "joao", "senha123", "joao@email.com", "999887766");
+        Usuarios usuario = new Usuarios("João Silva", "joao", "senha123", "joao@email.com", "999887766");
         
         // Act
         usuarioService.cadastrar(usuario);
@@ -166,7 +161,7 @@ public class UsuarioServiceTest {
     @DisplayName("Deve atualizar usuário corretamente")
     public void testAtualizarUsuario() throws Exception {
         // Arrange
-        Usuario usuario = new Usuario(1, "João Silva Atualizado", "joao", "senha123", "joao@email.com", "999887766");
+        Usuarios usuario = new Usuarios(1, "João Silva Atualizado", "joao", "senha123", "joao@email.com", "999887766");
         
         // Act
         usuarioService.atualizar(usuario);
@@ -184,5 +179,6 @@ public class UsuarioServiceTest {
         // Assert
         verify(mockUsuarioDAO).excluirUsuario(1);
     }
+
+
 }
-*/

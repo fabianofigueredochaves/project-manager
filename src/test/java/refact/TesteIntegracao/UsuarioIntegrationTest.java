@@ -1,5 +1,5 @@
 
-package com.refact;
+package refact.TesteIntegracao;
 
 import com.refact.dao.UsuarioDAO;
 import com.refact.dao.MySqlUsuarioDAO;

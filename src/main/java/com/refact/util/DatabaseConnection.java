@@ -10,14 +10,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DatabaseConnection {
-    private static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
-
+//    private static Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
+  private static final Logger LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
+    
     private static DatabaseConnection instance;
 
     // Configurações de conexão encapsuladas
-    private final DatabaseConfig config;
+//    private DatabaseConfig config;
+     public final DatabaseConfig config;
+     // private final DatabaseConfig config;
 
-    private DatabaseConnection(DatabaseConfig config) {
+   //  private DatabaseConnection(DatabaseConfig config) {
+    public DatabaseConnection(DatabaseConfig config) {
         this.config = config;
     }
 

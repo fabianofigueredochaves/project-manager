@@ -1,10 +1,10 @@
-/*
-package com.projectmanager.dao;
 
-import com.projectmanager.dao.impl.MySqlUsuarioDAO;
-import com.projectmanager.models.Usuario;
-import com.projectmanager.util.DatabaseConfig;
-import com.projectmanager.util.DatabaseConnection;
+package refact.TesteUnitario;
+
+import com.refact.dao.MySqlUsuarioDAO;
+import com.refact.models.Usuarios;
+//import com.refact.util.DatabaseConfig;
+import com.refact.util.DatabaseConnection;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 
@@ -154,7 +154,7 @@ public class MySqlUsuarioDAOTest {
     @DisplayName("Deve cadastrar usuário corretamente")
     public void testCadastrarUsuario() throws Exception {
         // Arrange
-        Usuario usuario = new Usuario("João Silva", "joao", "senha123", "joao@email.com", "999887766");
+        Usuarios usuario = new Usuarios("João Silva", "joao", "senha123", "joao@email.com", "999887766");
 
         // Act
         usuarioDAO.cadastrarUsuario(usuario);
@@ -172,7 +172,7 @@ public class MySqlUsuarioDAOTest {
     @DisplayName("Deve atualizar usuário corretamente")
     public void testAtualizarUsuario() throws Exception {
         // Arrange
-        Usuario usuario = new Usuario(1, "João Silva Atualizado", "joao", "senha456", "joao.novo@email.com", "988776655");
+        Usuarios usuario = new Usuarios(1, "João Silva Atualizado", "joao", "senha456", "joao.novo@email.com", "988776655");
 
         // Act
         usuarioDAO.atualizarUsuario(usuario);
@@ -208,4 +208,3 @@ public class MySqlUsuarioDAOTest {
         assertThrows(SQLException.class, () -> usuarioDAO.obterNomeCompleto(1));
     }
 }
-*/

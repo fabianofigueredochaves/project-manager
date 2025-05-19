@@ -14,6 +14,9 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     private static final Logger LOGGER = Logger.getLogger(MySqlUsuarioDAO.class.getName());
     private final DatabaseConnection databaseConnection;
 
+//    private static Logger LOGGER = Logger.getLogger(MySqlUsuarioDAO.class.getName());
+ //   private DatabaseConnection databaseConnection;
+    
     // Injeção de dependência via construtor
     public MySqlUsuarioDAO(DatabaseConnection databaseConnection) {
         this.databaseConnection = databaseConnection;

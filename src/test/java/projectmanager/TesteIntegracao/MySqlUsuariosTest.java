@@ -1,15 +1,13 @@
-//package com.refact;
-package com.projectmanager.mysql;
+package projectmanager.TesteIntegracao;
 
-import com.refact.models.Usuarios;
-import com.refact.controller.UsuarioController;
+import com.projectmanager.models.Usuarios;
+import com.projectmanager.mysql.MySqlUsuarios;
 import org.junit.jupiter.api.*;
 
 import java.sql.SQLException;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
 /**
  * Testes de integração para a classe MySqlUsuarios
@@ -18,10 +16,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
  * 
  * IMPORTANTE: Execute estes testes em um banco de dados de teste, nunca em produção!
  */
-@WebMvcTest(UsuarioController.class)
-
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)  // Garante a ordem dos testes
-public class MySqlUsuariosTestRefact {
+public class MySqlUsuariosTest {
 
     // Lista de usuários carregados da estrutura de dados
     private static List<Usuarios> usuariosTeste;
@@ -32,33 +28,17 @@ public class MySqlUsuariosTestRefact {
     // Dados dos usuários para teste - usando lista de listas
     private static final List<List<String>> DADOS_USUARIOS = Arrays.asList(
         // Cada sub-lista representa: [nomeCompleto, nomeUsuario, senha, email, telefone]
-        Arrays.asList("Fabiano Figueredo Chaves", "ffc", "ffc2025", "fabianofigueredochaves@gmail.com", "(31) 98385-3684"),
+        Arrays.asList("Fabiano Figueredo Chaves", "ffchaves", "ffc2025", "fabianofigueredochaves@gmail.com", "(31) 98385-3684"),
         Arrays.asList("Isabelly Bom Tempo Ribeiro", "ibtr", "isa456", "isa@gmail.com", "(11) 93475-5919"),
         Arrays.asList("Vinícius Souza Reis", "vsr", "xyz789", "vinisourei@gmail.com ", "(37) 98837-3788")
     //  Arrays.asList("AAA", "aaa", "abcd", "zzz@teste.com", "(11) 93333-4444")
     );
-   // private final UsuarioController usuarioController;
-    
-    
-    public UsuarioController usuarioController;
-
-    public MySqlUsuariosTestRefact() {
-        this.usuarioController = new UsuarioController();
-         usuarioController.inicializarBanco();
-    }
-    
-  //  public MySqlUsuariosTestRefact()
-  //  {
- //       this.usuarioController = new UsuarioController();
- //   }
-   // public UsuarioController usuarioController;// = new UsuarioController();
     
     /**
      * Configuração inicial - cria a tabela e carrega usuários dos dados estáticos
-     * @throws java.sql.SQLException
      */
     @BeforeAll
-    public static void setupAll() {
+    public static void setupAll() throws SQLException {
         System.out.println("Iniciando testes com usuários da lista estática");
         
         // Inicializar coleções
@@ -69,15 +49,10 @@ public class MySqlUsuariosTestRefact {
         carregarUsuariosDaLista();
         
         // Garantir que a tabela existe
-       // MySqlUsuarios.criarTabUsuario();
-      // UsuarioController usuarioController = new UsuarioController();
-      
-       //UsuarioController usuarioController = new UsuarioController();
-      
-      
+        MySqlUsuarios.criarTabUsuario();
         
         // Limpar usuários de teste anteriores (se houver)
-       // limparUsuariosTeste();
+        limparUsuariosTeste();
     }
     
     /**
@@ -106,53 +81,55 @@ public class MySqlUsuariosTestRefact {
             fail("Erro ao carregar usuários da lista: " + e.getMessage());
         }
     }
-   
     
-   //  * Método auxiliar para limpar usuários de teste anteriores
-    
-    private void limparUsuariosTeste() {
+    /**
+     * Método auxiliar para limpar usuários de teste anteriores
+     */
+    private static void limparUsuariosTeste() {
         System.out.println("Limpando usuários de teste anteriores...");
         
-        // Para cada usuário na lista, verificar se existe e excluir
-        for (Usuarios usuario : usuariosTeste) {
-            // Tentar autenticar para obter ID
-            
-            int id = usuarioController.autenticarUsuario(
-                    usuario.getNomeUsuario(),
-                    usuario.getSenha());
-            
-            // Excluir se existir
-            if (id > 0) {
-                System.out.println("Excluindo usuário existente: " + usuario.getNomeUsuario() + " (ID: " + id + ")");
-                usuarioController.excluirUsuario(id);
+        try {
+            // Para cada usuário na lista, verificar se existe e excluir
+            for (Usuarios usuario : usuariosTeste) {
+                // Tentar autenticar para obter ID
+                int id = MySqlUsuarios.autenticarUsuario(
+                        usuario.getNomeUsuario(), 
+                        usuario.getSenha());
+                
+                // Excluir se existir
+                if (id > 0) {
+                    System.out.println("Excluindo usuário existente: " + usuario.getNomeUsuario() + " (ID: " + id + ")");
+                    MySqlUsuarios.excluirUsuario(id);
+                }
             }
+        } catch (SQLException e) {
+            System.err.println("Erro ao limpar usuários de teste: " + e.getMessage());
         }
     }
     
-    
-  //  * Limpar após todos os testes
-     
+    /**
+     * Limpar após todos os testes
+     */
     @AfterAll
     public static void tearDownAll() {
         System.out.println("Finalizando testes - limpando usuários criados");
         
-        // Excluir todos os usuários de teste que foram cadastrados
-        for (int id : idsUsuarios.values()) {
-            if (id > 0) {
-                System.out.println("Excluindo usuário com ID: " + id);
-               // usuarioController.excluirUsuario(id);
+        try {
+            // Excluir todos os usuários de teste que foram cadastrados
+            for (int id : idsUsuarios.values()) {
+                if (id > 0) {
+                    System.out.println("Excluindo usuário com ID: " + id);
+                    MySqlUsuarios.excluirUsuario(id);
+                }
             }
+        } catch (SQLException e) {
+            System.err.println("Erro ao limpar após testes: " + e.getMessage());
         }
     }
     
-   
-    
-    
-   //  * Teste 1: Cadastrar todos os usuários carregados da lista
- 
-  }
-   /*  
-    
+    /**
+     * Teste 1: Cadastrar todos os usuários carregados da lista
+     */
     @Test
     @Order(1)
     public void testCadastrarUsuarios() {
@@ -160,32 +137,34 @@ public class MySqlUsuariosTestRefact {
         
         // Cadastrar cada usuário da lista
         for (Usuarios usuario : usuariosTeste) {
-         //   usuarioController.cadastrarUsuario(usuario);
+            MySqlUsuarios.cadastrarUsuario(usuario);
             System.out.println("Usuário cadastrado: " + usuario.getNomeUsuario());
         }
         
-        // Verificar se foram cadastrados através da autenticação
-        for (Usuarios usuario : usuariosTeste) {
-         //   int id = usuarioController.autenticarUsuario(
-          //          usuario.getNomeUsuario(),
-         //           usuario.getSenha());
-            
-            // Verificar se o ID é válido
-  //          assertTrue(id > 0, "Usuário " + usuario.getNomeUsuario() + " deveria ser cadastrado e autenticado com sucesso");
-            
-            // Guardar o ID para uso em outros testes
-            idsUsuarios.put(usuario.getNomeUsuario(), id);
-            usuario.setId(id);
-            
-            System.out.println("Usuário " + usuario.getNomeUsuario() + " autenticado com ID: " + id);
+        try {
+            // Verificar se foram cadastrados através da autenticação
+            for (Usuarios usuario : usuariosTeste) {
+                int id = MySqlUsuarios.autenticarUsuario(
+                        usuario.getNomeUsuario(), 
+                        usuario.getSenha());
+                
+                // Verificar se o ID é válido
+                assertTrue(id > 0, "Usuário " + usuario.getNomeUsuario() + " deveria ser cadastrado e autenticado com sucesso");
+                
+                // Guardar o ID para uso em outros testes
+                idsUsuarios.put(usuario.getNomeUsuario(), id);
+                usuario.setId(id);
+                
+                System.out.println("Usuário " + usuario.getNomeUsuario() + " autenticado com ID: " + id);
+            }
+        } catch (SQLException e) {
+            fail("Exceção ao tentar autenticar usuários: " + e.getMessage());
         }
     }
     
- 
-  
-    
-   // * Teste 2: Autenticar todos os usuários
-     
+    /**
+     * Teste 2: Autenticar todos os usuários
+     */
     @Test
     @Order(2)
     public void testAutenticarUsuarios() {
@@ -194,36 +173,36 @@ public class MySqlUsuariosTestRefact {
         try {
             // Para cada usuário, testar autenticação com senha correta
             for (Usuarios usuario : usuariosTeste) {
-   //             int id = MySqlUsuarios.autenticarUsuario(
-   //                     usuario.getNomeUsuario(), 
-   //                     usuario.getSenha());
+                int id = MySqlUsuarios.autenticarUsuario(
+                        usuario.getNomeUsuario(), 
+                        usuario.getSenha());
                 
-//                assertEquals(idsUsuarios.get(usuario.getNomeUsuario()), id, 
-  //                      "Autenticação do usuário " + usuario.getNomeUsuario() + " falhou");
+                assertEquals(idsUsuarios.get(usuario.getNomeUsuario()), id, 
+                        "Autenticação do usuário " + usuario.getNomeUsuario() + " falhou");
                 
                 System.out.println("Autenticação bem-sucedida: " + usuario.getNomeUsuario());
                 
                 // Testar também com senha incorreta
-  //              int authFalha = MySqlUsuarios.autenticarUsuario(
-  //                      usuario.getNomeUsuario(), 
-  //                      "senhaerrada_" + usuario.getNomeUsuario());
+                int authFalha = MySqlUsuarios.autenticarUsuario(
+                        usuario.getNomeUsuario(), 
+                        "senhaerrada_" + usuario.getNomeUsuario());
                 
-  //              assertEquals(0, authFalha, 
-  //                      "Autenticação com senha errada para " + usuario.getNomeUsuario() + " deveria falhar");
+                assertEquals(0, authFalha, 
+                        "Autenticação com senha errada para " + usuario.getNomeUsuario() + " deveria falhar");
             }
             
             // Testar com usuário inexistente
-  //          int authFalha = MySqlUsuarios.autenticarUsuario("usuario_que_nao_existe", "qualquersenha");
-  //          assertEquals(-1, authFalha, "Autenticação com usuário inexistente deveria retornar -1");
+            int authFalha = MySqlUsuarios.autenticarUsuario("usuario_que_nao_existe", "qualquersenha");
+            assertEquals(-1, authFalha, "Autenticação com usuário inexistente deveria retornar -1");
             
         } catch (SQLException e) {
             fail("Exceção ao tentar autenticar usuários: " + e.getMessage());
         }
     }
     
-    
-   //  * Teste 3: Obter nome completo de todos os usuários
-    
+    /**
+     * Teste 3: Obter nome completo de todos os usuários
+     */
     @Test
     @Order(3)
     public void testObterNomeCompletoUsuarios() {
@@ -233,26 +212,26 @@ public class MySqlUsuariosTestRefact {
             // Para cada usuário, verificar se o nome completo é retornado corretamente
             for (Usuarios usuario : usuariosTeste) {
                 int id = idsUsuarios.get(usuario.getNomeUsuario());
-     //           String nomeObtido = MySqlUsuarios.obterNomeCompleto(id);
+                String nomeObtido = MySqlUsuarios.obterNomeCompleto(id);
                 
-     //           assertEquals(usuario.getNomeCompleto(), nomeObtido, 
-     //                   "Nome completo de " + usuario.getNomeUsuario() + " incorreto");
+                assertEquals(usuario.getNomeCompleto(), nomeObtido, 
+                        "Nome completo de " + usuario.getNomeUsuario() + " incorreto");
                 
-     //           System.out.println("Nome completo obtido para " + usuario.getNomeUsuario() + ": " + nomeObtido);
+                System.out.println("Nome completo obtido para " + usuario.getNomeUsuario() + ": " + nomeObtido);
             }
             
             // Testar com ID inexistente
-     //       String nomeInexistente = MySqlUsuarios.obterNomeCompleto(99999);
-     //       assertNull(nomeInexistente, "Nome de usuário inexistente deveria retornar null");
+            String nomeInexistente = MySqlUsuarios.obterNomeCompleto(99999);
+            assertNull(nomeInexistente, "Nome de usuário inexistente deveria retornar null");
             
         } catch (SQLException e) {
             fail("Exceção ao obter nome completo: " + e.getMessage());
         }
     }
     
-   
-    // * Teste 4: Obter lista de usuários
-   
+    /**
+     * Teste 4: Obter lista de usuários
+     */
     @Test
     @Order(4)
     public void testObterListaUsuarios() {
@@ -260,20 +239,20 @@ public class MySqlUsuariosTestRefact {
         
         try {
             // Obter lista de usuários
-    //        List<String> listaUsuarios = MySqlUsuarios.obterUsuarios();
+            List<String> listaUsuarios = MySqlUsuarios.obterUsuarios();
             
             // Verificar se a lista não é nula
-    //        assertNotNull(listaUsuarios, "A lista de usuários não deve ser nula");
+            assertNotNull(listaUsuarios, "A lista de usuários não deve ser nula");
             
             // Verificar se cada usuário de teste está na lista
             for (Usuarios usuario : usuariosTeste) {
-   //             boolean usuarioEncontrado = listaUsuarios.contains(usuario.getNomeUsuario());
-   //             assertTrue(usuarioEncontrado, 
-   //                     "Usuário '" + usuario.getNomeUsuario() + "' deveria estar na lista");
+                boolean usuarioEncontrado = listaUsuarios.contains(usuario.getNomeUsuario());
+                assertTrue(usuarioEncontrado, 
+                        "Usuário '" + usuario.getNomeUsuario() + "' deveria estar na lista");
                 
-   //            if (usuarioEncontrado) {
-   //                 System.out.println("Usuário encontrado na lista: " + usuario.getNomeUsuario());
-   //             }
+                if (usuarioEncontrado) {
+                    System.out.println("Usuário encontrado na lista: " + usuario.getNomeUsuario());
+                }
             }
             
         } catch (SQLException e) {
@@ -281,9 +260,9 @@ public class MySqlUsuariosTestRefact {
         }
     }
     
-    
-    // * Teste 5: Obter todas as colunas dos usuários
-   
+    /**
+     * Teste 5: Obter todas as colunas dos usuários
+     */
     @Test
     @Order(5)
     public void testObterTodasColunas() {
@@ -291,10 +270,10 @@ public class MySqlUsuariosTestRefact {
         
         try {
             // Obter todos os dados dos usuários
-     //       List<Usuarios> todosUsuarios = MySqlUsuarios.getAllColuns();
+            List<Usuarios> todosUsuarios = MySqlUsuarios.getAllColuns();
             
             // Verificar se a lista não é nula
-     //       assertNotNull(todosUsuarios, "A lista de usuários não deve ser nula");
+            assertNotNull(todosUsuarios, "A lista de usuários não deve ser nula");
             
             // Para cada usuário de teste, verificar se seus dados estão corretos
             for (Usuarios usuarioTeste : usuariosTeste) {
@@ -330,9 +309,9 @@ public class MySqlUsuariosTestRefact {
         }
     }
     
-    
-    // * Teste 6: Atualizar todos os usuários
-    
+    /**
+     * Teste 6: Atualizar todos os usuários
+     */
     @Test
     @Order(6)
     public void testAtualizarUsuarios() {
@@ -353,7 +332,7 @@ public class MySqlUsuariosTestRefact {
                 usuario.setEmail(novoEmail);
                 
                 // Atualizar no banco
-   //             MySqlUsuarios.atualizarUsuario(usuario);
+                MySqlUsuarios.atualizarUsuario(usuario);
                 System.out.println("Atualizando " + usuario.getNomeUsuario() + " com novo nome: " + novoNome);
             }
             
@@ -362,28 +341,27 @@ public class MySqlUsuariosTestRefact {
                 int id = idsUsuarios.get(usuario.getNomeUsuario());
                 
                 // Verificar nome atualizado
-   //             String nomeObtido = MySqlUsuarios.obterNomeCompleto(id);
-   //             assertEquals(usuario.getNomeCompleto(), nomeObtido, 
-    //                    "Nome do usuário " + usuario.getNomeUsuario() + " não foi atualizado");
+                String nomeObtido = MySqlUsuarios.obterNomeCompleto(id);
+                assertEquals(usuario.getNomeCompleto(), nomeObtido, 
+                        "Nome do usuário " + usuario.getNomeUsuario() + " não foi atualizado");
                 
-   //             System.out.println("Nome atualizado verificado para " + usuario.getNomeUsuario() + ": " + nomeObtido);
+                System.out.println("Nome atualizado verificado para " + usuario.getNomeUsuario() + ": " + nomeObtido);
             }
             
             // Verificar outros campos atualizados usando getAllColuns
-   //         List<Usuarios> todosUsuarios = MySqlUsuarios.getAllColuns();
+            List<Usuarios> todosUsuarios = MySqlUsuarios.getAllColuns();
             
             for (Usuarios usuarioTeste : usuariosTeste) {
                 int id = idsUsuarios.get(usuarioTeste.getNomeUsuario());
                 
                 // Procurar o usuário atualizado
-   //             for (Usuarios u : todosUsuarios) {
-     //               if (u.getId() == id) {
-     //                   assertEquals(usuarioTeste.getEmail(), u.getEmail(), 
-     //                           "Email do usuário " + usuarioTeste.getNomeUsuario() + " não foi atualizado");
-     //                   break;
-     //               }
-     //           }
-
+                for (Usuarios u : todosUsuarios) {
+                    if (u.getId() == id) {
+                        assertEquals(usuarioTeste.getEmail(), u.getEmail(), 
+                                "Email do usuário " + usuarioTeste.getNomeUsuario() + " não foi atualizado");
+                        break;
+                    }
+                }
             }
             
         } catch (SQLException e) {
@@ -391,5 +369,3 @@ public class MySqlUsuariosTestRefact {
         }
     }
 }
-
-*/

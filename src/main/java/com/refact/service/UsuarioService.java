@@ -8,8 +8,10 @@ import com.refact.models.Usuarios;
 import java.util.List;
 
 public class UsuarioService {
+//    private UsuarioDAO usuarioDAO;
     private final UsuarioDAO usuarioDAO;
-
+    
+    
     // Injeção de dependência
     public UsuarioService(UsuarioDAO usuarioDAO) {
         this.usuarioDAO = usuarioDAO;
